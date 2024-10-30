@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Daftar Obat</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nama Obat</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="obat : ${listObat}">
+                    <td th:text="${obat.namaObat}"></td>
+                    <td th:text="${obat.price}"></td>
+                    <td th:text="${obat.description}"></td>
+                    <td>
+                        <a th:href="@{/delete-obat/{id}(id=${obat.id})}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/add-obat" class="btn btn-success">Add Obat</a>
+    </div>
+</body>
+</html>
